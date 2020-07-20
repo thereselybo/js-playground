@@ -18,28 +18,69 @@
     }
 
     // Regular
+    console.log("hello");
 
     // Interpolated
+    console.log("hello i am a %s string", "silly"); //whatever is put in as second argument will be "interpolated" into %s
+
+    //ES6 way of interpolation
+    let myString = "silly";
+    console.log(`hello i am a ${myString} string`);
 
     // Styled
+    console.log("%c i am some awesome text", "font-size: 20px; color: purple; text-shadow: 5px 5px 5px gray;");
 
     // warning!
+    console.warn("oh noes something is off");
 
     // Error :|
+    console.error("oh gosh something is really wrong")
 
     // Info
+    console.info("hello i am a fun fact");
 
     // Testing
+    console.assert(1 === 1, "that's wrong"); //will only run if first argument is wrong
+    console.assert(1 === 2, "that's wrong");
+
+    const p = document.querySelector("p");
+    console.assert(p.classList.contains("habadaba"), 'p does not contain "habadaba"');
 
     // clearing
+    console.clear()
 
     // Viewing DOM Elements
+    console.dir(p) //opens up element to see all properties and methods
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`) //groups all the logs belonging to one dog name together, and collapses it so that not everything is visible starting out
+      console.log(`this is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`) //closes group, using same argument as opening one
+    })
 
     // counting
+    console.count("Therese"); //counts how many times one uses something, eg a name 
+    console.count("Therese");
+    console.count("Hungry");
+    console.count("Therese");
+    console.count("Hungry");
+    console.count("Hungry");
+    console.count("Therese");
+    console.count("Therese");
 
     // timing
+    console.time("fetching") //starts a timer, telling how long it will take to do x
+    fetch("https://api.github.com/users/thereselybo")
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd("fetching"); //stops timer
+        console.log(data);
+      });
+
+    console.table(dogs);
 
   </script>
 </body>
