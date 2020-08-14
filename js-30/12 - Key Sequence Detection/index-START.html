@@ -7,6 +7,19 @@
 </head>
 <body>
 <script>
+  const pressed = [];
+  const secretCode  = "therese";
+  window.addEventListener("keyup", (e) => {
+    // console.log(e.key);
+    const pushedBtn = e.key;
+    pressed.push(pushedBtn);
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length); // looks for the secred code from the end of the array, then subtracts the length of whatever is pressed with the length of the code so that the array will only contain the last x buttons pushed
+    // console.log(pressed);
+    if(pressed.join("").includes(secretCode)) {//.join("") turns the elements from the array into a string 
+      console.log("huzzah");
+      cornify_add(); //adds some unicorn stuff to the screen
+    } 
+  })
 </script>
 </body>
 </html>
