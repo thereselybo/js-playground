@@ -160,3 +160,15 @@ input[type=range]::-moz-range-thumb {
   background: #ffc600;
   cursor: pointer;
 }
+
+
+.material-icons {
+  color: white;
+  background: none;
+  border: none;
+  max-width: fit-content;
+}
+
+.material-icons:hover {
+  cursor: pointer;
+}
